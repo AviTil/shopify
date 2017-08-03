@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html lang="en">
+ 
+    <head>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        
+        <link rel="shortcut icon" href="http://secondopinions.help/assets/images/favicon.ico" type="image/x-icon" />
+        
+        <!-- Second Opinions Stylesheet -->
+        
+        
+        <style>
+        
+            .navbar1 {
+                background-color: lightgrey;
+            }
+            
+            .open-second {
+                float: left;
+                margin-top: 5px;
+                cursor: pointer;
+                height: 15px;
+            }
+            
+            .panel-second {
+                 background-color: black;
+                 border-bottom-left-radius: 10px;
+                 border-top-left-radius: 10px;
+                 height: 130px;
+                 width: 230px;
+                 z-index: 1000;
+                 position: fixed;
+                 top: 35%;
+                 right: -205px;
+                 opacity: 0.8;
+                 padding: 5px;
+                 text-align: center;
+                 font-size: 130%;
+                display: none;
+             }
+            
+            .panel-second2 {
+                 background-color: black;
+                 border-bottom-left-radius: 10px;
+                 border-top-left-radius: 10px;
+                 height: 130px;
+                 width: 230px;
+                 z-index: 1000;
+                 position: fixed;
+                 top: 35%;
+                 right: 0px;
+                 opacity: 0.8;
+                 padding: 5px;
+                 text-align: center;
+                 font-size: 130%;
+             }
+
+             .panel-text {
+                 font-size: 75%;
+                 color: ivory;
+                 padding: 5px;
+                 display: none;
+             }
+
+             #rate8-handler {
+                 margin-top: -5px;
+                 background: url('https://poober.me/demo/Picture1.png');
+                 background-repeat: no-repeat;
+                 background-size: 64px 40px;
+                 height: 40px;
+                 width: 64px;
+                 border-radius: 6px;
+                 cursor: pointer;
+                 display: none;
+             }
+
+             .close-second {
+                 float: right;
+                 margin-top: -10px;
+                 cursor: pointer;
+                 height: 20px;
+                 width: 20px;
+                 display: none;
+             }
+
+
+            @media screen and (max-width: 560px) {
+                 .panel-second {
+                     border-top-right-radius: 10px;
+                     border-bottom-left-radius: 0px;
+                     width: 80%;
+                     height: 90px;
+                     top: 100%;
+                     left: 50%;
+                     margin-top: -30px;
+                     margin-left: -40%;
+                 }
+                 
+                 .panel-second2 {
+                     border-top-right-radius: 10px;
+                     border-bottom-left-radius: 0px;
+                     width: 80%;
+                     height: 100px;
+                     font-size: 100%;
+                     top: 100%;
+                     left: 50%;
+                     margin-top: -100px;
+                     margin-left: -40%;
+                 }
+
+                 #rate8-handler {
+                     margin-top: -12px;
+                 }
+                 
+                 .close-second {
+                     margin-top: -20px;
+                 }
+             }
+            
+            
+            
+        </style>
+        
+        
+    </head>
+    
+    <body>
+    
+        
+        <img src="background.png" alt="stubble" width=100%>
+        
+        
+        <!-- Second Opinions Panel -->
+        
+        <div class="panel-second">
+        
+            <p class="panel-text">Unsure about this item? Get a second opinion now.</p>
+            
+            <center>
+                <div id="rate8-handler"></div>
+            </center>
+
+            <img class="close-second" src="https://secondopinions.help/assets/images/cancel.png">
+            
+            <img class="open-second" src="https://secondopinions.help/assets/images/back1.png">
+            
+        </div>
+        
+         <!-- End of Second Opinions Panel -->   
+        
+        
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+
+        
+  
+    </body>
+    
+    <footer>
+        
+            <!-- Script for Second Opinions panel and link to Second Opinions route -->
+        
+            <script type="text/javascript"> 
+            
+            
+            setTimeout(function(){
+                 
+                    $(".panel-second").show()
+            }, 1)    
+                
+            setTimeout(function(){
+                 
+                    $(".panel-text").show()
+                    $(".open-second").hide()
+                    $("#rate8-handler").show()
+                    $(".close-second").show()
+                    $(".panel-second").addClass("panel-second2")
+                    $(".panel-second2").removeClass("panel-second")
+                
+            },10000)
+
+// Script to close second opinions panel upon button click
+
+                $(".close-second").click(function(){
+                    $(".panel-second").hide();
+                    $(".panel-second2").hide();
+                })
+                
+                $(".open-second").click(function(){{
+                    
+                    $(".panel-text").show()
+                    $(".open-second").hide()
+                    $("#rate8-handler").show()
+                    $(".close-second").show()
+                    $(".panel-second").addClass("panel-second2")
+                    $(".panel-second2").removeClass("panel-second")
+                    
+                }})
+                
+                
+            </script>
+        
+        
+            <script async="true" type="text/javascript" src="https://secondopinions.help/api/v1/scripts/feedback-plugins.js?app_id=48af208a2e26beeef9a3e0ff9c8287076b17fd878ceec5c2&app_secret=04dd6d81dceeb7e933bdc4609b39825ef614faa05a2686ebf1f598a2cbf93011ac307320c6fb269ce6ebafa594a3e622e513f1a3e368871d7efe3eb1d590a569"></script>
+        
+            <!-- End of script -->
+    
+    </footer>
+
+</html>
